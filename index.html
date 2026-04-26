@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth Hack Factory — Engineering Wealth, One Video At A Time</title>
+<meta name="description" content="A faceless finance and investing channel for the quiet wealth builders. New videos every Tuesday and Friday at 3PM EST.">
+<meta name="theme-color" content="#0a0e1a">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Wealth Hack Factory">
+<meta property="og:description" content="Engineering wealth, one video at a time.">
+<meta property="og:type" content="website">
+
+<!-- Fonts: editorial serif + clean sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0a0e1a;
+  --navy-deep: #060810;
+  --navy-soft: #1a2332;
+  --gold: #d4a017;
+  --gold-bright: #f5c542;
+  --emerald: #00c853;
+  --emerald-glow: #00e676;
+  --bone: #f5f1e8;
+  --paper: #ebe5d4;
+  --grey: #9ca3af;
+  --grey-dark: #4b5563;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--navy);
+  color: var(--bone);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Selection style */
+::selection { background: var(--gold); color: var(--navy); }
+
+/* ============ NAVIGATION ============ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+}
+.logo {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 32px; height: 32px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy);
+  font-weight: 900;
+  font-size: 14px;
+  font-family: var(--sans);
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--bone);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold-bright); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 40px 80px;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(212, 160, 23, 0.08), transparent 60%),
+    radial-gradient(ellipse at 80% 70%, rgba(0, 200, 83, 0.06), transparent 60%),
+    var(--navy);
+  overflow: hidden;
+}
+
+/* Subtle grid texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(212, 160, 23, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 160, 23, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Floating chart bars decoration */
+.hero-chart {
+  position: absolute;
+  right: -100px;
+  bottom: 0;
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.hero-chart .bar {
+  width: 60px;
+  background: linear-gradient(to top, var(--emerald), var(--emerald-glow));
+  border-radius: 6px 6px 0 0;
+  animation: barRise 1.2s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  transform-origin: bottom;
+  transform: scaleY(0);
+}
+.hero-chart .bar:nth-child(1) { height: 180px; animation-delay: 0.3s; }
+.hero-chart .bar:nth-child(2) { height: 280px; animation-delay: 0.45s; }
+.hero-chart .bar:nth-child(3) { height: 380px; animation-delay: 0.6s; }
+.hero-chart .bar:nth-child(4) { height: 480px; animation-delay: 0.75s; }
+.hero-chart .bar:nth-child(5) { height: 580px; animation-delay: 0.9s; }
+@keyframes barRise {
+  to { transform: scaleY(1); }
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 32px;
+  font-weight: 600;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.1s;
+}
+.hero-eyebrow .pulse {
+  width: 8px; height: 8px;
+  background: var(--emerald-glow);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(48px, 9vw, 140px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.3s;
+}
+h1 .italic {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold);
+  font-variation-settings: "opsz" 144;
+}
+h1 .small {
+  display: block;
+  font-size: 0.5em;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--bone);
+  opacity: 0.7;
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+}
+
+.hero-tagline {
+  font-size: clamp(16px, 1.6vw, 20px);
+  max-width: 580px;
+  color: var(--grey);
+  margin-bottom: 48px;
+  line-height: 1.5;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+.hero-tagline strong { color: var(--bone); font-weight: 500; }
+
+.hero-cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.7s;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(212, 160, 23, 0.4);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--bone);
+  border: 1px solid rgba(245, 241, 232, 0.25);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+.hero-meta {
+  position: absolute;
+  bottom: 40px; left: 40px;
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey);
+  z-index: 2;
+}
+.hero-meta .dot {
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 12px;
+  vertical-align: middle;
+}
+
+/* ============ ABOUT ============ */
+.about {
+  background: var(--bone);
+  color: var(--navy);
+  padding: 120px 40px;
+  position: relative;
+}
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey-dark);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.about-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--navy);
+}
+.about-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  font-variation-settings: "opsz" 144;
+}
+.about-title strong {
+  font-style: normal;
+  font-weight: 900;
+  color: var(--navy);
+}
+.about-body p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  color: var(--grey-dark);
+}
+.about-body p:first-child::first-letter {
+  font-family: var(--serif);
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 0.85;
+  float: left;
+  padding: 8px 12px 0 0;
+  color: var(--gold);
+}
+.about-stats {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(10, 14, 26, 0.15);
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.stat-num .accent { color: var(--gold); }
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey-dark);
+  margin-top: 8px;
+}
+
+/* ============ VIDEOS ============ */
+.videos {
+  background: var(--navy);
+  padding: 120px 40px;
+  position: relative;
+}
+.videos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(212, 160, 23, 0.03) 1px, transparent 1px);
+  background-size: 100% 60px;
+  pointer-events: none;
+}
+.section-header {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  max-width: 600px;
+}
+.section-title em {
+  font-weight: 500;
+  color: var(--gold);
+}
+.section-cta a {
+  color: var(--bone);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+.section-cta a:hover { color: var(--gold-bright); }
+
+.video-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.video-card {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--bone);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+.video-card:hover { transform: translateY(-6px); }
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--navy-soft);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 160, 23, 0.15);
+  margin-bottom: 16px;
+}
+.video-thumb svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+}
+.video-card:hover .video-thumb {
+  border-color: var(--gold);
+}
+.play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 14, 26, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.video-card:hover .play-icon { opacity: 1; }
+.play-icon-circle {
+  width: 64px; height: 64px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+.video-card:hover .play-icon-circle { transform: scale(1); }
+.play-icon-circle::before {
+  content: '';
+  width: 0; height: 0;
+  border-left: 18px solid var(--navy);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 4px;
+}
+
+.video-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.video-meta .duration {
+  color: var(--grey);
+}
+.video-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ============ EMAIL SIGNUP ============ */
+.signup {
+  position: relative;
+  padding: 140px 40px;
+  background: var(--paper);
+  color: var(--navy);
+  overflow: hidden;
+}
+
+.signup::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212, 160, 23, 0.15), transparent 70%);
+  pointer-events: none;
+}
+.signup::after {
+  content: '';
+  position: absolute;
+  bottom: -200px; left: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0, 200, 83, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.signup-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.signup-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144;
+}
+.signup-quote .highlight {
+  font-weight: 900;
+  font-style: normal;
+  color: var(--gold);
+  position: relative;
+  display: inline-block;
+}
+.signup-quote .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 0;
+  width: 100%; height: 8px;
+  background: rgba(212, 160, 23, 0.25);
+  z-index: -1;
+}
+.signup-sub {
+  font-size: 17px;
+  color: var(--grey-dark);
+  margin-bottom: 48px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.signup-form {
+  display: flex;
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto;
+  background: white;
+  padding: 8px;
+  border-radius: 100px;
+  box-shadow: 0 20px 60px rgba(10, 14, 26, 0.12);
+}
+.signup-form input {
+  flex: 1;
+  padding: 16px 24px;
+  border: none;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 15px;
+  background: transparent;
+  color: var(--navy);
+}
+.signup-form input::placeholder { color: var(--grey); }
+.signup-form button {
+  background: var(--navy);
+  color: var(--bone);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: all 0.3s;
+}
+.signup-form button:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+.signup-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.signup-message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--emerald);
+  font-weight: 500;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.signup-message.show { opacity: 1; }
+
+.signup-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-dark);
+}
+.signup-features span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.signup-features span::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--navy-deep);
+  color: var(--grey);
+  padding: 64px 40px 32px;
+  border-top: 1px solid rgba(212, 160, 23, 0.1);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--bone);
+}
+.footer-tag {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--grey);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(212, 160, 23, 0.08);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-meta { display: none; }
+  .hero-chart { right: -200px; opacity: 0.1; }
+  .about { padding: 80px 24px; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .stat-num { font-size: 36px; }
+  .videos { padding: 80px 24px; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+  .video-grid { grid-template-columns: 1fr; gap: 24px; }
+  .signup { padding: 80px 24px; }
+  .signup-form {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 16px;
+    gap: 8px;
+  }
+  .signup-form input { padding: 14px 16px; text-align: center; }
+  .signup-form button { width: 100%; padding: 16px; }
+  .signup-features { gap: 16px; font-size: 11px; }
+  footer { padding: 40px 24px 24px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; text-align: left; }
+  .footer-bottom { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 56px; }
+  .about-stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-mark">$</span>
+    Wealth Hack Factory
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener">YouTube ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- Decorative chart bars -->
+  <div class="hero-chart">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="pulse"></span>
+      New videos · Tuesday &amp; Friday · 3PM EST
+    </div>
+
+    <h1>
+      Wealth is built<br>
+      <span class="italic">quietly</span>
+      <span class="small">— and we're showing you how.</span>
+    </h1>
+
+    <p class="hero-tagline">
+      A faceless finance channel for <strong>the patient ones</strong> — the people who'd rather build a fortune in silence than chase the next get-rich-quick scheme. No hype. No noise. Just the boring habits that actually work.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener" class="btn btn-primary">
+        Watch on YouTube
+        <span aria-hidden="true">→</span>
+      </a>
+      <a href="#newsletter" class="btn btn-ghost">Get the free toolkit</a>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span>Est. 2026</span>
+    <span>Engineering Wealth <span class="dot"></span> One Video At A Time</span>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="about-label">About the channel</div>
+      <h2 class="about-title">
+        We make videos for <strong>quiet wealth</strong> <em>builders.</em>
+      </h2>
+    </div>
+
+    <div class="about-body">
+      <p>
+        The wealthiest people you'll ever meet don't look wealthy. They don't post their balance online. They don't drive the flashiest cars. And yet, while everyone else is drowning in lifestyle inflation, they're quietly compounding fortunes that take decades to build and minutes to understand.
+      </p>
+      <p>
+        Wealth Hack Factory exists for those people — and the ones who want to become them. Every video breaks down a single principle of investing, money psychology, or financial freedom in clear, jargon-free terms. No face on camera. No hype. Just the timeless mechanics of how money actually grows.
+      </p>
+      <p>
+        Whether you're starting from $0 or already have a portfolio, this is the channel that respects your time and treats you like an adult.
+      </p>
+
+      <div class="about-stats">
+        <div>
+          <div class="stat-num"><span class="accent">2x</span></div>
+          <div class="stat-label">Videos / Week</div>
+        </div>
+        <div>
+          <div class="stat-num">10<span class="accent">m</span></div>
+          <div class="stat-label">Avg. Length</div>
+        </div>
+        <div>
+          <div class="stat-num">0%</div>
+          <div class="stat-label">Hype</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section class="videos" id="videos">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Latest Episodes</div>
+      <h2 class="section-title">
+        Featured <em>videos</em>
+      </h2>
+    </div>
+    <div class="section-cta">
+      <a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener">
+        See all on YouTube ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="video-grid">
+
+    <!-- VIDEO 1 -->
+    <a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0a0e1a"/>
+              <stop offset="100%" stop-color="#1a2332"/>
+            </linearGradient>
+            <linearGradient id="gold1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a017"/>
+              <stop offset="100%" stop-color="#f5c542"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="225" fill="url(#g1)"/>
+          <rect x="60" y="140" width="30" height="40" fill="#00c853" rx="2" opacity="0.8"/>
+          <rect x="100" y="120" width="30" height="60" fill="#00c853" rx="2" opacity="0.85"/>
+          <rect x="140" y="95" width="30" height="85" fill="#00c853" rx="2" opacity="0.9"/>
+          <rect x="180" y="65" width="30" height="115" fill="#00c853" rx="2" opacity="0.95"/>
+          <rect x="220" y="35" width="30" height="145" fill="#00c853" rx="2"/>
+          <text x="200" y="200" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="900" fill="#d4a017" letter-spacing="2">QUIET WEALTH</text>
+          <line x1="60" y1="155" x2="250" y2="40" stroke="url(#gold1)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="play-icon"><div class="play-icon-circle"></div></div>
+      </div>
+      <div class="video-meta">
+        <span>Investing</span>
+        <span class="duration">11 min</span>
+      </div>
+      <h3 class="video-title">7 Money Habits Of People Who Build Wealth Quietly</h3>
+    </a>
+
+    <!-- VIDEO 2 -->
+    <a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="225" fill="#0a0e1a"/>
+          <circle cx="120" cy="110" r="60" fill="none" stroke="#d4a017" stroke-width="3"/>
+          <circle cx="120" cy="110" r="40" fill="none" stroke="#00e676" stroke-width="2" opacity="0.6"/>
+          <text x="120" y="120" text-anchor="middle" font-family="Fraunces" font-size="48" font-weight="900" fill="#d4a017">$</text>
+          <text x="240" y="100" font-family="DM Sans" font-size="22" font-weight="900" fill="#f5f1e8">$1,000</text>
+          <text x="240" y="130" font-family="DM Sans" font-size="13" fill="#9ca3af" letter-spacing="2">→ $1,000,000?</text>
+          <line x1="50" y1="190" x2="350" y2="190" stroke="#d4a017" stroke-width="1" opacity="0.3"/>
+        </svg>
+        <div class="play-icon"><div class="play-icon-circle"></div></div>
+      </div>
+      <div class="video-meta">
+        <span>Index Funds</span>
+        <span class="duration">9 min</span>
+      </div>
+      <h3 class="video-title">How $1,000 Becomes $1 Million (The Index Fund Math)</h3>
+    </a>
+
+    <!-- VIDEO 3 -->
+    <a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="225" fill="#0a0e1a"/>
+          <rect x="0" y="0" width="200" height="225" fill="#1a2332" opacity="0.5"/>
+          <text x="100" y="100" text-anchor="middle" font-family="DM Sans" font-size="56" font-weight="900" fill="#9ca3af">BROKE</text>
+          <text x="100" y="130" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#9ca3af" letter-spacing="2">PAYCHECK TO PAYCHECK</text>
+          <text x="300" y="100" text-anchor="middle" font-family="DM Sans" font-size="56" font-weight="900" fill="#d4a017">RICH</text>
+          <text x="300" y="130" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#d4a017" letter-spacing="2">QUIET FREEDOM</text>
+          <line x1="200" y1="0" x2="200" y2="225" stroke="#d4a017" stroke-width="2"/>
+          <text x="200" y="195" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#f5f1e8" letter-spacing="3">5 MINDSET SHIFTS</text>
+        </svg>
+        <div class="play-icon"><div class="play-icon-circle"></div></div>
+      </div>
+      <div class="video-meta">
+        <span>Mindset</span>
+        <span class="duration">10 min</span>
+      </div>
+      <h3 class="video-title">5 Mindset Shifts That Separate Rich People From Broke People</h3>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============ EMAIL SIGNUP ============ -->
+<section class="signup" id="newsletter">
+  <div class="signup-inner">
+    <h2 class="signup-quote">
+      Get the <span class="highlight">free toolkit</span> the wealthy quietly use.
+    </h2>
+    <p class="signup-sub">
+      Join the newsletter for our free wealth-building toolkit — calculators, cheat sheets, and our best video drops, sent every Friday. No spam, ever.
+    </p>
+    <form class="signup-form" id="signupForm" novalidate>
+      <input type="email" id="emailInput" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit" id="signupBtn">Send me the toolkit</button>
+    </form>
+    <div class="signup-message" id="signupMessage"></div>
+
+    <div class="signup-features">
+      <span>Free Forever</span>
+      <span>One Email per Week</span>
+      <span>Unsubscribe Anytime</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Wealth Hack Factory</div>
+      <div class="footer-tag">Engineering Wealth · One Video At A Time</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="https://youtube.com/@wealthhackfactory" target="_blank" rel="noopener">YouTube</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Wealth Hack Factory. All rights reserved.</span>
+    <span>Educational content only — not financial advice.</span>
+  </div>
+</footer>
+
+<script>
+// Email signup form (client-side only — for actual email collection, connect to ConvertKit, Mailchimp, or Beehiiv)
+const form = document.getElementById('signupForm');
+const input = document.getElementById('emailInput');
+const btn = document.getElementById('signupBtn');
+const message = document.getElementById('signupMessage');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = input.value.trim();
+
+  // Basic validation
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    message.textContent = 'Please enter a valid email address.';
+    message.style.color = '#dc2626';
+    message.classList.add('show');
+    return;
+  }
+
+  // Disable button and show success
+  // TODO: Replace this block with your real form provider (ConvertKit, Mailchimp, Beehiiv, etc.)
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  setTimeout(() => {
+    message.textContent = '✓ You\'re in. Check your inbox for the toolkit.';
+    message.style.color = '#00a847';
+    message.classList.add('show');
+    btn.textContent = 'Subscribed';
+    input.value = '';
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Send me the toolkit';
+      message.classList.remove('show');
+    }, 4000);
+  }, 800);
+});
+
+// Smooth nav fade on scroll
+let lastScroll = 0;
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  const cur = window.scrollY;
+  if (cur > 100) {
+    nav.style.background = 'rgba(10, 14, 26, 0.95)';
+  } else {
+    nav.style.background = 'rgba(10, 14, 26, 0.85)';
+  }
+  lastScroll = cur;
+});
+</script>
+
+</body>
+</html>
