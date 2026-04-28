@@ -1,106 +1,104 @@
-# Wealth Hack Factory — Website
+# Wealth Hack Factory — Website (v2)
 
-A clean, responsive one-page website for the Wealth Hack Factory YouTube channel.
+A modern, conversion-focused, single-file storefront for the Wealth Hack Factory YouTube channel. Built around one product line: digital tools (PDFs, Notion templates, sheets) that pair with each video.
+
+> **Tagline:** Engineer your wealth. One habit at a time.
 
 ## What's inside
 
-- **`index.html`** — the entire site in a single self-contained file
-  - Hero section with animated chart bars
-  - About section with drop cap typography
-  - Featured videos grid (3 cards with custom SVG thumbnails)
-  - Email signup form
-  - Footer with links
+- **`index.html`** — the entire site (HTML + CSS + JS) in a single self-contained file
+  - Sticky glass nav with scroll state
+  - Hero with animated wealth-OS card (live SVG chart, stats, status floater)
+  - Auto-scrolling brand marquee
+  - Flagship product banner ("The Wealth Mindset Playbook")
+  - 6-card digital-products grid (tracker, workbook, sheet, newsletter, bundle, coaching call)
+  - Latest YouTube video block (linked to the channel)
+  - Founder/about section with editorial drop cap
+  - 3-card testimonials grid
+  - Free lead-magnet email capture (Sunday Letter + 7-day reset PDF)
+  - 6-question accordion FAQ
+  - 4-column footer with social icons
+- **`README.md`** — this file
 
-The site is fully mobile-responsive and uses no external dependencies except Google Fonts.
+No build step, no npm, no servers — just one HTML file you can edit in any text editor.
 
----
+## Design system
 
-## 🚀 Deploy to GitHub Pages — Free in 5 minutes
+| Token | Value | Notes |
+|---|---|---|
+| Ink (background) | `#060912` | Deepest base |
+| Navy | `#0a0e1a` / `#0f1424` / `#161c30` | Card layers |
+| Bone | `#f5f1e8` | Body text |
+| Gold | `#d4a017` / `#f0c14b` | Primary accent |
+| Emerald | `#00c853` / `#1de982` | "Up" / success |
+| Muted | `#8b8f9c` | Secondary text |
+| Display | Fraunces (serif) | Headlines, prices |
+| UI | DM Sans | Body, buttons |
+| Data | JetBrains Mono | Stats, eyebrows |
 
-GitHub Pages will host your site at `https://<your-username>.github.io/wealth-hack-factory/` for free, forever.
+Aesthetic: editorial fintech / luxury wealth magazine — Bloomberg meets Robinhood.
 
-### Step 1 — Create a GitHub account
-If you don't already have one, sign up at [github.com](https://github.com). It's free.
+## Deploy to GitHub Pages — Free
 
-### Step 2 — Create a new repository
-1. Click the **+** button in the top-right corner of GitHub → **New repository**
-2. Repository name: `wealth-hack-factory` (or anything you like)
-3. Make it **Public** (required for free GitHub Pages)
-4. Tick **"Add a README file"**
-5. Click **Create repository**
+GitHub Pages will host the site at `https://<your-username>.github.io/wealth-hack-factory/` for free.
 
-### Step 3 — Upload `index.html`
-1. On your new repo's page, click **Add file** → **Upload files**
-2. Drag `index.html` (and this `README.md`) into the upload area
-3. Scroll down, write a commit message like *"initial site"*
-4. Click **Commit changes**
+1. Push this repo to GitHub (or commit on top of the existing `wealth-hack-factory` repo).
+2. In the repo, click **Settings → Pages**.
+3. Under **Source**, select **Deploy from a branch**, then pick `main` and `/ (root)`.
+4. Click **Save**. Wait 30–60s, refresh — your site is live.
 
-### Step 4 — Enable GitHub Pages
-1. In your repo, click the **Settings** tab (top-right of the repo navigation)
-2. In the left sidebar, click **Pages**
-3. Under **Source**, select **Deploy from a branch**
-4. Under **Branch**, select **main** and **/ (root)**
-5. Click **Save**
+## Customising the site
 
-### Step 5 — Visit your site
-Wait 30-60 seconds, then refresh the Pages settings screen. You'll see:
+Open `index.html` in any editor. Everything below is plain HTML + CSS + JS, no frameworks.
 
-> ✅ Your site is live at `https://<your-username>.github.io/wealth-hack-factory/`
+### 1. Wire your real product checkout URLs
 
-That URL is now your live website. Share it on YouTube, in your video descriptions, on Twitter, anywhere.
+Each product CTA in the shop has a placeholder `href="#"` and a `data-cta="..."` marker. Search for these and replace `#` with your storefront URL (Gumroad, Stripe Payment Link, Lemon Squeezy, Podia, etc.):
 
----
-
-## 🛠️ Customising the site
-
-Open `index.html` in any text editor (VS Code, Notepad, TextEdit). Everything is in one file — HTML, CSS, and JavaScript.
-
-### Update YouTube link
-Find and replace `https://youtube.com/@wealthhackfactory` with your actual channel URL (do this everywhere it appears — there are 5 instances).
-
-### Update video cards
-Search for `<!-- VIDEO 1 -->` in the file. Each video block has:
-- A title in the `<h3 class="video-title">`
-- A category and duration in `<div class="video-meta">`
-- A clickable link wrapper — replace `https://youtube.com/@wealthhackfactory` with the actual video URL once you've published
-
-To use real YouTube thumbnails instead of the SVG ones, replace the `<svg>` block inside `.video-thumb` with:
-```html
-<img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
 ```
-(replace `VIDEO_ID` with the actual ID from your YouTube URL — the bit after `?v=`)
+data-cta="flagship"   → The Wealth Mindset Playbook
+data-cta="tracker"    → 5 Daily Habits Tracker
+data-cta="workbook"   → Money Story Rewrite Workbook
+data-cta="sheet"      → Net Worth Compounder
+data-cta="bundle"     → The Wealth Operating System bundle
+data-cta="coaching"   → Mindset Audit Call
+```
 
-### Connect the email signup to a real provider
-The form currently shows a confirmation message but doesn't actually send the email anywhere. To collect real subscribers, sign up for one of these (all have free tiers):
+### 2. Hook up the email signup
 
-- **Beehiiv** — best for a newsletter, great free tier ([beehiiv.com](https://beehiiv.com))
-- **ConvertKit / Kit** — popular with creators ([kit.com](https://kit.com))
-- **Mailchimp** — free up to 500 contacts ([mailchimp.com](https://mailchimp.com))
+The form (`#signup`) currently shows a friendly confirmation message but doesn't store emails. To collect real subscribers, sign up for one of these (all free tiers):
 
-Each will give you an embed code. In `index.html`, find the comment `// TODO: Replace this block with your real form provider` and swap the form action with your provider's endpoint, OR replace the entire `<form>` block with the embed they give you.
+- **Beehiiv** — best for newsletters · [beehiiv.com](https://www.beehiiv.com)
+- **Kit (ConvertKit)** — popular with creators · [kit.com](https://kit.com)
+- **Mailchimp** — free up to 500 contacts · [mailchimp.com](https://mailchimp.com)
 
-### Custom domain (optional)
-Once the site is live, you can buy a domain like `wealthhackfactory.com` from Namecheap, Google Domains, or Cloudflare for $10-15/year, then point it to your GitHub Pages site. GitHub has [step-by-step docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+In `index.html`, find the `// TODO: Replace this with your real provider's submission endpoint or embed.` comment, and either:
 
----
+- Set the `<form>`'s `action` to your provider's POST endpoint, or
+- Replace the entire `<form id="signup">` block with the provider's embed snippet.
 
-## 📁 File structure
+### 3. Update YouTube links
+
+Find and replace `https://www.youtube.com/@WealthHackFactory` with your live channel URL (or specific video URLs) — there are several instances in the file.
+
+### 4. Update copy & products
+
+Each product card has a `<h3>` title, a `<p>` description, a `.price` block, and a `.pill` category tag. Edit them in place. To add or remove a card, copy a `<article class="card-product">…</article>` block.
+
+### 5. Custom domain (optional)
+
+Buy a domain (Namecheap / Cloudflare / Google Domains, ~$10–15/year), point it at GitHub Pages. GitHub has step-by-step docs.
+
+## File structure
 
 ```
 wealth-hack-factory/
-├── index.html       ← your entire site
-└── README.md        ← this file
+├── index.html   ← the entire site
+└── README.md    ← this file
 ```
 
-That's it. No build step, no npm, no servers — just one HTML file you can edit in any text editor.
+That's it.
 
 ---
 
-## 🎨 Design notes
-
-- **Fonts:** Fraunces (editorial serif) + DM Sans (modern sans)
-- **Palette:** Deep navy `#0a0e1a` · Gold `#d4a017` · Emerald `#00c853` · Bone `#f5f1e8`
-- **Style:** Editorial financial publication — Bloomberg-meets-luxury-magazine aesthetic
-- **Mobile breakpoints:** `900px` (tablet) and `480px` (small phone)
-
-Made for Wealth Hack Factory. Engineering wealth, one video at a time.
+Made for **Wealth Hack Factory**. Engineering wealth, one habit at a time.
